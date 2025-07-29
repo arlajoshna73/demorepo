@@ -12,12 +12,12 @@ jobs:
     - name: Log in to Azure Container Registry
       uses: azure/docker-login@v1
       with:
-        login-server: containernginx.azurecr.io
+        login-server: myconregistrydemo.azurecr.io
         username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
         password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
     - name: Build and push Docker image
       run: |
-        IMAGE_NAME=containernginx.azurecr.io/nginx
+        IMAGE_NAME=myconregistrydemo.azurecr.io/nginx
         IMAGE_TAG=latest
         echo "Building Docker image..."
         # Ensure Dockerfile exists
@@ -30,4 +30,4 @@ jobs:
         echo "Pushing Docker image to ACR..."
         docker push $IMAGE_NAME:$IMAGE_TAG
     - name: Logout from Azure Container Registry
-      run: docker logout containernginx.azurecr.io
+      run: docker logout myconregistrydemo.azurecr.io
