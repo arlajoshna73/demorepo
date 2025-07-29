@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: containernginx.azurecr.io/nginx:v1
+        image: myconregistrydemo.azurecr.io/nginx:v1
         imagePullPolicy: IfNotPresent
       imagePullSecrets:
         - name: acr-secret
